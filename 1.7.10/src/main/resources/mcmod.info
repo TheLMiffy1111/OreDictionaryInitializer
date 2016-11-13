@@ -1,0 +1,16 @@
+[
+{
+  "modid": "zzzzoredictinit",
+  "name": "Ore Dictionary Initializer",
+  "description": "This small mod is designed for modpack makers, which creates ore dictionary entries at the end of the preInit stage.",
+  "version": "1.0.0",
+  "mcversion":"1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["TheLMiffy1111"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
