@@ -19,9 +19,9 @@ public class OreDictInit {
 	public static String definedThingyBlocks;
 	public static String definedThingyItems;
 	
-    @Instance
-    public static OreDictInit instance;
-
+	@Instance
+	public static OreDictInit instance;
+	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		Woodchopper.log(Level.INFO, "ODI is in preInit.");
@@ -40,6 +40,6 @@ public class OreDictInit {
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-
+		
 	}
 }

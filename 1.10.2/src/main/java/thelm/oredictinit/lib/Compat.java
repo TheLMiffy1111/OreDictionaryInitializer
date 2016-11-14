@@ -8,7 +8,7 @@ public class Compat {
 	//Nothing to see here yet :D
 	
 	public static void init() {
-
+		
 		//Nothing to see here yet :D 
 		
 	}

@@ -12,14 +12,12 @@ import thelm.oredictinit.OreDictInit;
 import thelm.oredictinit.lib.Reference;
 
 public class ConfigHandler {
-
 	
 	public static ConfigHandler INSTANCE = new ConfigHandler();
 	public Configuration configFile;
 	public Set<String> usedCategories = new HashSet<String>();
 	
-	public static boolean GC = true;
-	public static boolean GS = true;
+	//Nothing to see here yet :D
 	
 	public void preInit(File file) {
 		configFile = new Configuration(file, true);
@@ -28,8 +26,7 @@ public class ConfigHandler {
 		initCompat();
 		usedCategories.add("Custom");
 		usedCategories.add("Compat");
-	}
-	
+	}	
 	
 	private void initThing() {
 		
@@ -41,13 +38,12 @@ public class ConfigHandler {
 	}
 	
 	private void initCompat() {
-
+		
 		//Nothing to see here yet :D
 		
 		if (configFile.hasChanged())
 			configFile.save();
 	}
-
 	
 	private String getStringWithComment(String category, String name, String def, String comment) {
 		return configFile.get(category, name, def, comment).setRequiresMcRestart(true).getString();
@@ -57,13 +53,13 @@ public class ConfigHandler {
 		return configFile.get(category, name, def).setRequiresMcRestart(true).getBoolean(def);
 	}
 	
- 	@SubscribeEvent
- 	public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent eventArgs) {
- 		if (Reference.MOD_ID.equals(eventArgs.getModID())) {
- 			configFile.load();
-
+	@SubscribeEvent
+	public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent eventArgs) {
+		if (Reference.MOD_ID.equals(eventArgs.getModID())) {
+			configFile.load();
+			
 			initThing();
 			initCompat();
-  		}
-  	}
+		}
+	}
 }

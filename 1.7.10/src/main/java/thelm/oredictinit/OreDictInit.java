@@ -17,13 +17,13 @@ import thelm.oredictinit.registry.OreDictRegisCore;
 
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION_NUMBER, dependencies = Reference.DEPENDENCIES)
 public class OreDictInit {
-	
+
 	public static String definedThingyBlocks;
 	public static String definedThingyItems;
 	
-    @Instance
-    public static OreDictInit instance;
-
+	@Instance
+	public static OreDictInit instance;
+	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
 		Woodchopper.log(Level.INFO, "ODI is in preInit.");
@@ -42,6 +42,6 @@ public class OreDictInit {
 	
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-
+		
 	}
 }

@@ -56,54 +56,52 @@ public class OreDictRegisCore {
 			}			
 		}
 	}
-
- 	public static void addCustomEntryB(String entry, String mod, String block, String damage) {
- 		
- 		Integer dam = Integer.parseInt(damage);
-
- 		try {
- 			Block thing = getBlock(mod,block);
-            OreDictionary.registerOre(entry, new ItemStack(thing, 1, dam));
- 		}
- 		catch(Throwable e) {
-  			Woodchopper.log(Level.INFO, "Entry " + entry + "-" + mod + "-" + block + "-" + damage + " has errored.");
-               e.printStackTrace();
- 		}
- 	}
- 	
- 	public static void addCustomEntryI(String entry, String mod, String item, String damage) {
-
- 		Integer dam = Integer.parseInt(damage);
 	
- 		try {
- 			Item thing = getItem(mod,item);
- 			OreDictionary.registerOre(entry, new ItemStack(thing, 1, dam));
- 		}
- 		catch(Throwable e) {
- 			Woodchopper.log(Level.INFO, "Entry " + entry + "-" + mod + "-" + item + "-" + damage + " has errored.");
- 			e.printStackTrace();
- 		}
- 	}
- 	
-    public static Block getBlock(String mod, String block) throws ItemNotFoundException {
-        Block target = GameRegistry.findBlock(mod, block);
-        if(target == null)
-            throw new ItemNotFoundException(mod, block);
-        return target;
-    }
- 	
-    
-    public static Item getItem(String mod, String item) throws ItemNotFoundException {
-        Item target = GameRegistry.findItem(mod, item);
-        if(target == null)
-            throw new ItemNotFoundException(mod, item);
-        return target;
-    }
-    
-    
-    public static class ItemNotFoundException extends Exception {
-        public ItemNotFoundException(String mod, String item) {
-            super("Unable to find " + item + " in mod " + mod + "! Are you using the correct version of the mod?");
-        }
-    }
+	public static void addCustomEntryB(String entry, String mod, String block, String damage) {
+		
+		Integer dam = Integer.parseInt(damage);
+		
+		try {
+			Block thing = getBlock(mod,block);
+			OreDictionary.registerOre(entry, new ItemStack(thing, 1, dam));
+		}
+		catch(Throwable e) {
+			Woodchopper.log(Level.INFO, "Entry " + entry + "-" + mod + "-" + block + "-" + damage + " has errored.");
+			e.printStackTrace();
+		}
+	}
+	
+	public static void addCustomEntryI(String entry, String mod, String item, String damage) {
+		
+		Integer dam = Integer.parseInt(damage);
+		
+		try {
+			Item thing = getItem(mod,item);
+			OreDictionary.registerOre(entry, new ItemStack(thing, 1, dam));
+		}
+		catch(Throwable e) {
+			Woodchopper.log(Level.INFO, "Entry " + entry + "-" + mod + "-" + item + "-" + damage + " has errored.");
+			e.printStackTrace();
+		}
+	}
+	
+	public static Block getBlock(String mod, String block) throws ItemNotFoundException {
+		Block target = GameRegistry.findBlock(mod, block);
+		if(target == null)
+			throw new ItemNotFoundException(mod, block);
+		return target;
+	}
+	
+	public static Item getItem(String mod, String item) throws ItemNotFoundException {
+		Item target = GameRegistry.findItem(mod, item);
+		if(target == null)
+			throw new ItemNotFoundException(mod, item);
+		return target;
+	}
+	
+	public static class ItemNotFoundException extends Exception {
+		public ItemNotFoundException(String mod, String item) {
+			super("Unable to find " + item + " in mod " + mod);
+		}
+	}
 }
