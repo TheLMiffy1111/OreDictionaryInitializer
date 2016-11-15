@@ -24,6 +24,14 @@ public class ShinColle {
 		}
 		
 		try {
+			Block thing = OreDictRegisCore.getBlock("shincolle","BlockPolymetalOre");
+			OreDictionary.registerOre("oreManganese", new ItemStack(thing, 1, 0));
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
 			Block thing = OreDictRegisCore.getBlock("shincolle","BlockGrudge");
 			OreDictionary.registerOre("blockGrudge", new ItemStack(thing, 1, 0));
 		}
@@ -57,7 +65,7 @@ public class ShinColle {
 		}
 		
 		try {
-			Item thing = OreDictRegisCore.getItem("shincolle","AbyssIngot");
+			Item thing = OreDictRegisCore.getItem("shincolle","AbyssMetal");
 			OreDictionary.registerOre("ingotAbyssium", new ItemStack(thing, 1, 0));
 			OreDictionary.registerOre("dustManganese", new ItemStack(thing, 1, 1));
 		}
