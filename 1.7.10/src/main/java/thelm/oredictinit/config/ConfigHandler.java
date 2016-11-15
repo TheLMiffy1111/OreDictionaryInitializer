@@ -19,6 +19,7 @@ public class ConfigHandler {
 	public static boolean GC = true;
 	public static boolean GCM = true;
 	public static boolean GS = true;
+	public static boolean SC = true;
 	public static boolean TM = true;
 	public static boolean UC = true;
 	
@@ -45,6 +46,7 @@ public class ConfigHandler {
 		GC = getBoolean("Compat", "GalacticraftCore", true);
 		GCM = getBoolean("Compat", "GalacticraftMars", true);
 		GS = getBoolean("Compat", "GalaxySpace", true);
+		SC = getBoolean("Compat", "ShinColle", true);
 		TM = getBooleanWithComment("Compat", "TaintedMagic", true, "Will remove when Tainted Magic oreDict entries are properly added.");
 		UC = getBooleanWithComment("Compat", "UniverseCraft", true, "Will remove when UniverseCraft oreDict entries are added.");
 		

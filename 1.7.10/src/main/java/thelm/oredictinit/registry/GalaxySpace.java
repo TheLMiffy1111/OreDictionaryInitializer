@@ -8,18 +8,6 @@ import net.minecraftforge.oredict.OreDictionary;
 public class GalaxySpace {
 	protected static void ore() {
 		try {
-			Item thing = OreDictRegisCore.getItem("GalaxySpace","item.GlowstoneDusts");
-			OreDictionary.registerOre("dustGlowstone", new ItemStack(thing, 1, 0));
-			OreDictionary.registerOre("dustGlowstone", new ItemStack(thing, 1, 1));
-			OreDictionary.registerOre("dustGlowstone", new ItemStack(thing, 1, 2));
-			OreDictionary.registerOre("dustGlowstone", new ItemStack(thing, 1, 3));
-			OreDictionary.registerOre("dustGlowstone", new ItemStack(thing, 1, 4));
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-		
-		try {
 			Block thing = OreDictRegisCore.getBlock("GalaxySpace","ioblocks");
 			OreDictionary.registerOre("oreSulfur", new ItemStack(thing, 1, 6));
 		}
@@ -77,14 +65,6 @@ public class GalaxySpace {
 		}
 		
 		try {
-			Block thing = OreDictRegisCore.getBlock("GalaxySpace","enceladusglowstone");
-			OreDictionary.registerOre("glowstone", new ItemStack(thing, 1, 0));
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-		
-		try {
 			Block thing = OreDictRegisCore.getBlock("GalaxySpace","ioglowstone");
 			OreDictionary.registerOre("glowstone", new ItemStack(thing, 1, 0));
 		}
@@ -103,6 +83,18 @@ public class GalaxySpace {
 		try {
 			Block thing = OreDictRegisCore.getBlock("GalaxySpace","ceresglowstone");
 			OreDictionary.registerOre("glowstone", new ItemStack(thing, 1, 0));
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			Item thing = OreDictRegisCore.getItem("GalaxySpace","item.GlowstoneDusts");
+			OreDictionary.registerOre("dustGlowstone", new ItemStack(thing, 1, 0));
+			OreDictionary.registerOre("dustGlowstone", new ItemStack(thing, 1, 1));
+			OreDictionary.registerOre("dustGlowstone", new ItemStack(thing, 1, 2));
+			OreDictionary.registerOre("dustGlowstone", new ItemStack(thing, 1, 3));
+			OreDictionary.registerOre("dustGlowstone", new ItemStack(thing, 1, 4));
 		}
 		catch(Exception e) {
 			e.printStackTrace();

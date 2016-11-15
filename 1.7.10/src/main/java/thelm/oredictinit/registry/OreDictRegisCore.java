@@ -30,6 +30,11 @@ public class OreDictRegisCore {
 			GalaxySpace.ore();
 		}
 		
+		if(Compat.SC) {
+			Woodchopper.log(Level.INFO, "Loading ShinColle Compat");
+			ShinColle.ore();			
+		}
+		
 		if(Compat.TM) {			
 			Woodchopper.log(Level.INFO, "Loading TaintedMagic Compat");
 			TaintedMagic.ore();
@@ -42,6 +47,7 @@ public class OreDictRegisCore {
 	}
 	
 	public static void yayCustom() {
+		Woodchopper.log(Level.INFO, "Loading Custom Blocks");
 		for(String custom : OreDictInit.definedThingyBlocks.split(";")) {
 			String[] data = custom.trim().split("-");
 			if(data.length == 4){
@@ -49,6 +55,7 @@ public class OreDictRegisCore {
 			}			
 		}
 		
+		Woodchopper.log(Level.INFO, "Loading Custom Items");
 		for(String custom : OreDictInit.definedThingyItems.split(";")) {
 			String[] data = custom.trim().split("-");
 			if(data.length == 4){

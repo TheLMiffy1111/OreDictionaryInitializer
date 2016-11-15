@@ -8,6 +8,7 @@ public class Compat {
 	public static boolean GC = false;
 	public static boolean GCM = false;
 	public static boolean GS = false;
+	public static boolean SC = false;
 	public static boolean TM = false;
 	public static boolean UC = false;
 	
@@ -18,6 +19,8 @@ public class Compat {
 			GCM = true;
 		if(Loader.isModLoaded("GalaxySpace") && ConfigHandler.GS)
 			GS = true;
+		if(Loader.isModLoaded("shincolle") && ConfigHandler.SC)
+			SC = true;		
 		if(Loader.isModLoaded("TaintedMagic") && ConfigHandler.TM)
 			TM = true;
 		if(Loader.isModLoaded("universeCraft") && ConfigHandler.UC)

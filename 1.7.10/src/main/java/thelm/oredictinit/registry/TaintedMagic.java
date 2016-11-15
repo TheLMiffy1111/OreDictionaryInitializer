@@ -8,14 +8,6 @@ import net.minecraftforge.oredict.OreDictionary;
 public class TaintedMagic {
 	protected static void ore() {
 		try {
-			Item thing = OreDictRegisCore.getItem("TaintedMagic","ItemMaterial");
-			OreDictionary.registerOre("ingotShadow", new ItemStack(thing, 1, 0));
-		}
-		catch(Throwable e) {
-			e.printStackTrace();
-		}
-		
-		try {
 			Block thing = OreDictRegisCore.getBlock("TaintedMagic","BlockShadowOre");
 			OreDictionary.registerOre("oreShadow", new ItemStack(thing, 1, 0));
 		}
@@ -28,6 +20,14 @@ public class TaintedMagic {
 			OreDictionary.registerOre("blockShadow", new ItemStack(thing, 1, 0));
 		}
 		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			Item thing = OreDictRegisCore.getItem("TaintedMagic","ItemMaterial");
+			OreDictionary.registerOre("ingotShadow", new ItemStack(thing, 1, 0));
+		}
+		catch(Throwable e) {
 			e.printStackTrace();
 		}
 	}

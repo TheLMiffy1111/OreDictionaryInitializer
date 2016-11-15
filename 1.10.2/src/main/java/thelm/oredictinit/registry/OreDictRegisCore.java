@@ -20,6 +20,7 @@ public class OreDictRegisCore {
 	}
 	
 	public static void yayCustom() {
+		Woodchopper.log(Level.INFO, "Loading Custom Blocks");
 		for(String custom : OreDictInit.definedThingyBlocks.split(";")) {
 			String[] data = custom.trim().split("-");
 			if(data.length == 4){
@@ -27,6 +28,7 @@ public class OreDictRegisCore {
 			}			
 		}
 		
+		Woodchopper.log(Level.INFO, "Loading Custom Items");
 		for(String custom : OreDictInit.definedThingyItems.split(";")) {
 			String[] data = custom.trim().split("-");
 			if(data.length == 4){
@@ -63,7 +65,7 @@ public class OreDictRegisCore {
 		}
 	}
 	
-	@SuppressWarnings( "deprecation" )
+	@SuppressWarnings("deprecation")
 	public static Block getBlock(String mod, String block) throws ItemNotFoundException {
 		Block target = GameRegistry.findBlock(mod, block);
 		if(target == null)
@@ -71,7 +73,7 @@ public class OreDictRegisCore {
 		return target;
 	}
 	
-	@SuppressWarnings( "deprecation" )
+	@SuppressWarnings("deprecation")
 	public static Item getItem(String mod, String item) throws ItemNotFoundException {
 		Item target = GameRegistry.findItem(mod, item);
 		if(target == null)
