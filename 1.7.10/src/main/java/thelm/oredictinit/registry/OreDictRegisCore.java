@@ -1,7 +1,5 @@
 package thelm.oredictinit.registry;
 
-import org.apache.logging.log4j.Level;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -16,38 +14,33 @@ public class OreDictRegisCore {
 	public static void yayCompat() {
 		
 		if(Compat.GC) {
-			Woodchopper.log(Level.INFO, "Loading GalacticraftCore Compat");
+			Woodchopper.info("Loading GalacticraftCore Compat");
 			GalacticraftCore.ore();
 		}
 		
 		if(Compat.GCM) {	
-			Woodchopper.log(Level.INFO, "Loading GalacticraftMars Compat");
+			Woodchopper.info("Loading GalacticraftMars Compat");
 			GalacticraftMars.ore();
 		}
 		
 		if(Compat.GS) {
-			Woodchopper.log(Level.INFO, "Loading GalaxySpace Compat");
+			Woodchopper.info("Loading GalaxySpace Compat");
 			GalaxySpace.ore();
 		}
 		
 		if(Compat.SC) {
-			Woodchopper.log(Level.INFO, "Loading ShinColle Compat");
+			Woodchopper.info("Loading ShinColle Compat");
 			ShinColle.ore();			
 		}
 		
-		if(Compat.TM) {			
-			Woodchopper.log(Level.INFO, "Loading TaintedMagic Compat");
-			TaintedMagic.ore();
-		}
-		
 		if(Compat.UC) {
-			Woodchopper.log(Level.INFO, "Loading UniverseCraft Compat");
+			Woodchopper.info("Loading UniverseCraft Compat");
 			UniverseCraft.ore();
 		}
 	}
 	
 	public static void yayCustom() {
-		Woodchopper.log(Level.INFO, "Loading Custom Blocks");
+		Woodchopper.info("Loading Custom Blocks");
 		for(String custom : OreDictInit.definedThingyBlocks.split(";")) {
 			String[] data = custom.trim().split("-");
 			if(data.length == 4){
@@ -55,7 +48,7 @@ public class OreDictRegisCore {
 			}			
 		}
 		
-		Woodchopper.log(Level.INFO, "Loading Custom Items");
+		Woodchopper.info("Loading Custom Items");
 		for(String custom : OreDictInit.definedThingyItems.split(";")) {
 			String[] data = custom.trim().split("-");
 			if(data.length == 4){
@@ -73,7 +66,7 @@ public class OreDictRegisCore {
 			OreDictionary.registerOre(entry, new ItemStack(thing, 1, dam));
 		}
 		catch(Throwable e) {
-			Woodchopper.log(Level.INFO, "Entry " + entry + "-" + mod + "-" + block + "-" + damage + " has errored.");
+			Woodchopper.warn("Entry " + entry + "-" + mod + "-" + block + "-" + damage + " has errored.");
 			e.printStackTrace();
 		}
 	}
@@ -87,7 +80,7 @@ public class OreDictRegisCore {
 			OreDictionary.registerOre(entry, new ItemStack(thing, 1, dam));
 		}
 		catch(Throwable e) {
-			Woodchopper.log(Level.INFO, "Entry " + entry + "-" + mod + "-" + item + "-" + damage + " has errored.");
+			Woodchopper.warn("Entry " + entry + "-" + mod + "-" + item + "-" + damage + " has errored.");
 			e.printStackTrace();
 		}
 	}
@@ -108,7 +101,7 @@ public class OreDictRegisCore {
 	
 	public static class ItemNotFoundException extends Exception {
 		public ItemNotFoundException(String mod, String item) {
-			super("Unable to find " + item + " in mod " + mod);
+			super("Unable to find " + item + " in mod " + mod + ". Either it doesn't exist or is a poorly registered item.");
 		}
 	}
 }

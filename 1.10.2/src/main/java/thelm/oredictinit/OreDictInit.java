@@ -1,7 +1,5 @@
 package thelm.oredictinit;
 
-import org.apache.logging.log4j.Level;
-
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -24,22 +22,19 @@ public class OreDictInit {
 	
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		Woodchopper.log(Level.INFO, "ODI is in preInit.");
+		Woodchopper.info("Initializing...");
 		
+		Woodchopper.debug("Generating and Registering Config File");
 		ConfigHandler.INSTANCE.preInit(event.getSuggestedConfigurationFile());
 		MinecraftForge.EVENT_BUS.register(ConfigHandler.INSTANCE);
 		MinecraftForge.EVENT_BUS.register(this);
 		
+		Woodchopper.debug("Registering Compats");
 		Compat.init();
 		
 		OreDictRegisCore.yayCompat();
 		OreDictRegisCore.yayCustom();
 		
-		Woodchopper.log(Level.INFO, "ODI is out of preInit.");
-	}
-	
-	@EventHandler
-	public void init(FMLInitializationEvent event) {
-		
+		Woodchopper.info("Done!");
 	}
 }

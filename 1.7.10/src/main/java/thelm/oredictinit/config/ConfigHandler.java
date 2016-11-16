@@ -20,7 +20,6 @@ public class ConfigHandler {
 	public static boolean GCM = true;
 	public static boolean GS = true;
 	public static boolean SC = true;
-	public static boolean TM = true;
 	public static boolean UC = true;
 	
 	public void preInit(File file) {
@@ -34,8 +33,8 @@ public class ConfigHandler {
 	
 	private void initThing() {
 		
-		OreDictInit.definedThingyBlocks = getStringWithComment("Custom", "blocks", "", "Example: oreDictEntry-modID-Block-damageValue");
-		OreDictInit.definedThingyItems = getStringWithComment("Custom", "items", "", "Example: oreDictEntry-modID-Item-damageValue");
+		OreDictInit.definedThingyBlocks = getStringWithComment("Custom", "blocks", "", "Format: oreDictEntry-modID-Block-damageValue;oreDictEntry-modID-Block-damageValue;etc.");
+		OreDictInit.definedThingyItems = getStringWithComment("Custom", "items", "", "Format: oreDictEntry-modID-Item-damageValue;oreDictEntry-modID-Item-damageValue;etc.");
 		
 		if (configFile.hasChanged())
 			configFile.save();
@@ -47,7 +46,6 @@ public class ConfigHandler {
 		GCM = getBoolean("Compat", "GalacticraftMars", true);
 		GS = getBoolean("Compat", "GalaxySpace", true);
 		SC = getBoolean("Compat", "ShinColle", true);
-		TM = getBooleanWithComment("Compat", "TaintedMagic", true, "Will remove when Tainted Magic oreDict entries are properly added.");
 		UC = getBooleanWithComment("Compat", "UniverseCraft", true, "Will remove when UniverseCraft oreDict entries are added.");
 		
 		if (configFile.hasChanged())

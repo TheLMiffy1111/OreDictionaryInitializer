@@ -1,7 +1,5 @@
 package thelm.oredictinit.registry;
 
-import org.apache.logging.log4j.Level;
-
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -20,7 +18,7 @@ public class OreDictRegisCore {
 	}
 	
 	public static void yayCustom() {
-		Woodchopper.log(Level.INFO, "Loading Custom Blocks");
+		Woodchopper.info("Loading Custom Blocks");
 		for(String custom : OreDictInit.definedThingyBlocks.split(";")) {
 			String[] data = custom.trim().split("-");
 			if(data.length == 4){
@@ -28,7 +26,7 @@ public class OreDictRegisCore {
 			}			
 		}
 		
-		Woodchopper.log(Level.INFO, "Loading Custom Items");
+		Woodchopper.info("Loading Custom Items");
 		for(String custom : OreDictInit.definedThingyItems.split(";")) {
 			String[] data = custom.trim().split("-");
 			if(data.length == 4){
@@ -46,7 +44,7 @@ public class OreDictRegisCore {
 			OreDictionary.registerOre(entry, new ItemStack(thing, 1, dam));
 		}
 		catch(Throwable e) {
-			Woodchopper.log(Level.INFO, "Entry " + entry + "-" + mod + "-" + block + "-" + damage + " has errored.");
+			Woodchopper.warn("Entry " + entry + "-" + mod + "-" + block + "-" + damage + " has errored.");
 			e.printStackTrace();
 		}
 	}
@@ -60,7 +58,7 @@ public class OreDictRegisCore {
  			OreDictionary.registerOre(entry, new ItemStack(thing, 1, dam));
 		}
 		catch(Throwable e) {
-			Woodchopper.log(Level.INFO, "Entry " + entry + "-" + mod + "-" + item + "-" + damage + " has errored.");
+			Woodchopper.warn("Entry " + entry + "-" + mod + "-" + item + "-" + damage + " has errored.");
 			e.printStackTrace();
 		}
 	}
@@ -83,7 +81,7 @@ public class OreDictRegisCore {
 	  
 	public static class ItemNotFoundException extends Exception {
 		public ItemNotFoundException(String mod, String item) {
-			super("Unable to find " + item + " in mod " + mod);
+			super("Unable to find " + item + " in mod " + mod + ". Either it doesn't exist or is a poorly registered item.");
 		}
 	}
 }
