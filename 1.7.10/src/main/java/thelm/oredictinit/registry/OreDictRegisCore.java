@@ -40,7 +40,7 @@ public class OreDictRegisCore {
 	}
 	
 	public static void yayCustom() {
-		Woodchopper.info("Loading Custom Blocks");
+		Woodchopper.info("Loading Custom Block Entries");
 		for(String custom : OreDictInit.definedThingyBlocks.split(";")) {
 			String[] data = custom.trim().split("-");
 			if(data.length == 4){
@@ -48,7 +48,7 @@ public class OreDictRegisCore {
 			}			
 		}
 		
-		Woodchopper.info("Loading Custom Items");
+		Woodchopper.info("Loading Custom Item Entries");
 		for(String custom : OreDictInit.definedThingyItems.split(";")) {
 			String[] data = custom.trim().split("-");
 			if(data.length == 4){
