@@ -30,8 +30,8 @@ public class ConfigHandler {
 	
 	private void initThing() {
 		
-		OreDictInit.definedThingyBlocks = getStringWithComment("Custom", "blocks", "", "Example: oreDictEntry-modID-Block-damageValue");
-		OreDictInit.definedThingyItems = getStringWithComment("Custom", "items", "", "Example: oreDictEntry-modID-Item-damageValue");
+		OreDictInit.definedThingyBlocks = getStringWithComment("Custom", "blocks", "", "Format: oreDictEntry,modID,Block,damageValue;oreDictEntry,modID,Block,damageValue;etc.");
+		OreDictInit.definedThingyItems = getStringWithComment("Custom", "items", "", "Format: oreDictEntry,modID,Item,damageValue;oreDictEntry,modID,Item,damageValue;etc.");
 		
 		if (configFile.hasChanged())
 			configFile.save();

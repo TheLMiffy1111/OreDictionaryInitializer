@@ -20,24 +20,52 @@ public class OreDictRegisCore {
 	public static void yayCustom() {
 		Woodchopper.info("Loading Custom Block Entries");
 		for(String custom : OreDictInit.definedThingyBlocks.split(";")) {
-			String[] data = custom.trim().split("-");
-			if(data.length == 4){
-				addCustomEntryB(data[0], data[1], data[2], data[3]);				
+			String[] rawData = custom.split(",");
+			if(rawData.length == 4) {
+				String[] entries = rawData[0].split("\\+");
+				String[] damageValues = rawData[3].split("\\+");
+				if(entries.length == damageValues.length) {
+					for(int i = 0; i < entries.length; i++) {
+						try {
+							Integer.parseInt(damageValues[i]);
+						}
+						catch(Throwable e) {
+							Woodchopper.warn("Entry " + entries[i] + "," + rawData[1] + "," + rawData[2] + "," + damageValues[i] + " has errored.");
+							Woodchopper.warn(e.toString());
+							break;
+						}
+						addCustomEntryB(entries[i].trim(), rawData[1].trim(), rawData[2].trim(), damageValues[i].trim());
+					}
+				}
 			}			
 		}
 		
 		Woodchopper.info("Loading Custom Item Entries");
 		for(String custom : OreDictInit.definedThingyItems.split(";")) {
-			String[] data = custom.trim().split("-");
-			if(data.length == 4){
-				addCustomEntryI(data[0], data[1], data[2], data[3]);				
-			}			
+			String[] rawData = custom.split(",");
+			if(rawData.length == 4) {
+				String[] entries = rawData[0].split("\\+");
+				String[] damageValues = rawData[3].split("\\+");
+				if(entries.length == damageValues.length) {
+					for(int i = 0; i < entries.length; i++) {
+						try {
+							Integer.parseInt(damageValues[i]);
+						}
+						catch(Throwable e) {
+							Woodchopper.warn("Entry " + entries[i] + "," + rawData[1] + "," + rawData[2] + "," + damageValues[i] + " has errored.");
+							Woodchopper.warn(e.toString());
+							break;
+						}
+						addCustomEntryI(entries[i].trim(), rawData[1].trim(), rawData[2].trim(), damageValues[i].trim());
+					}
+				}
+			}	
 		}
 	}
 	
 	public static void addCustomEntryB(String entry, String mod, String block, String damage) {
 		
-		Integer dam = Integer.parseInt(damage);
+		int dam = Integer.parseInt(damage);
 		
 		try {
 			Block thing = getBlock(mod,block);
@@ -45,7 +73,7 @@ public class OreDictRegisCore {
 		}
 		catch(Throwable e) {
 			Woodchopper.warn("Entry " + entry + "-" + mod + "-" + block + "-" + damage + " has errored.");
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}
 	}
 	
@@ -55,19 +83,19 @@ public class OreDictRegisCore {
 		
 		try {
 			Item thing = getItem(mod,item);
- 			OreDictionary.registerOre(entry, new ItemStack(thing, 1, dam));
+			OreDictionary.registerOre(entry, new ItemStack(thing, 1, dam));
 		}
 		catch(Throwable e) {
 			Woodchopper.warn("Entry " + entry + "-" + mod + "-" + item + "-" + damage + " has errored.");
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}
 	}
 	
 	@SuppressWarnings("deprecation")
-	public static Block getBlock(String mod, String block) throws ItemNotFoundException {
+	public static Block getBlock(String mod, String block) throws BlockNotFoundException {
 		Block target = GameRegistry.findBlock(mod, block);
 		if(target == null)
-			throw new ItemNotFoundException(mod, block);
+			throw new BlockNotFoundException(mod, block);
 		return target;
 	}
 	
@@ -78,10 +106,16 @@ public class OreDictRegisCore {
 			throw new ItemNotFoundException(mod, item);
 		return target;
 	}
-	  
+	
+	public static class BlockNotFoundException extends Exception {
+		public BlockNotFoundException(String mod, String item) {
+			super("Unable to find block \"" + mod + ":" + item + "\". Either it doesn't exist or is a poorly registered block.");
+		}
+	}
+	
 	public static class ItemNotFoundException extends Exception {
 		public ItemNotFoundException(String mod, String item) {
-			super("Unable to find " + item + " in mod " + mod + ". Either it doesn't exist or is a poorly registered item.");
+			super("Unable to find item \"" + mod + ":" + item + "\". Either it doesn't exist or is a poorly registered item.");
 		}
 	}
 }

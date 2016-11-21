@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
+import thelm.oredictinit.Woodchopper;
 
 public class GalaxySpace {
 	protected static void ore() {
@@ -12,7 +13,7 @@ public class GalaxySpace {
 			OreDictionary.registerOre("oreSulfur", new ItemStack(thing, 1, 6));
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}		
 		
 		try {
@@ -20,7 +21,7 @@ public class GalaxySpace {
 			OreDictionary.registerOre("oreTitanium", new ItemStack(thing, 1, 3));
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}
 		
 		try {
@@ -28,7 +29,7 @@ public class GalaxySpace {
 			OreDictionary.registerOre("logWood", new ItemStack(thing, 1, 3));
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}
 		
 		try {
@@ -45,7 +46,7 @@ public class GalaxySpace {
 			OreDictionary.registerOre("blockCopper", new ItemStack(thing, 1, 9));
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}
 		
 		try {
@@ -53,7 +54,7 @@ public class GalaxySpace {
 			OreDictionary.registerOre("glowstone", new ItemStack(thing, 1, 0));
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}
 		
 		try {
@@ -61,7 +62,7 @@ public class GalaxySpace {
 			OreDictionary.registerOre("glowstone", new ItemStack(thing, 1, 0));
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}
 		
 		try {
@@ -69,7 +70,7 @@ public class GalaxySpace {
 			OreDictionary.registerOre("glowstone", new ItemStack(thing, 1, 0));
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}
 		
 		try {
@@ -77,7 +78,7 @@ public class GalaxySpace {
 			OreDictionary.registerOre("glowstone", new ItemStack(thing, 1, 0));
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}
 		
 		try {
@@ -85,7 +86,7 @@ public class GalaxySpace {
 			OreDictionary.registerOre("glowstone", new ItemStack(thing, 1, 0));
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}
 		
 		try {
@@ -97,7 +98,7 @@ public class GalaxySpace {
 			OreDictionary.registerOre("dustGlowstone", new ItemStack(thing, 1, 4));
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}
 	}
 }

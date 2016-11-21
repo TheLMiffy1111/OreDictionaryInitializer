@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
+import thelm.oredictinit.Woodchopper;
 
 public class ShinColle {
 	protected static void ore() {
@@ -12,7 +13,7 @@ public class ShinColle {
 			OreDictionary.registerOre("blockManganese", new ItemStack(thing, 1, 0));
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}
 		
 		try {
@@ -20,7 +21,7 @@ public class ShinColle {
 			OreDictionary.registerOre("blockAbyssium", new ItemStack(thing, 1, 0));
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}
 		
 		try {
@@ -28,7 +29,7 @@ public class ShinColle {
 			OreDictionary.registerOre("oreManganese", new ItemStack(thing, 1, 0));
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}
 		
 		try {
@@ -36,7 +37,7 @@ public class ShinColle {
 			OreDictionary.registerOre("blockGrudge", new ItemStack(thing, 1, 0));
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}
 		
 		try {
@@ -44,7 +45,7 @@ public class ShinColle {
 			OreDictionary.registerOre("blockGrudgeHeavy", new ItemStack(thing, 1, 0));
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}
 		
 		try {
@@ -52,7 +53,7 @@ public class ShinColle {
 			OreDictionary.registerOre("dustGrudge", new ItemStack(thing, 1, 0));
 		}
 		catch(Throwable e) {
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}
 		
 		try {
@@ -61,7 +62,7 @@ public class ShinColle {
 			OreDictionary.registerOre("dustTinyManganese", new ItemStack(thing, 1, 1));			
 		}
 		catch(Throwable e) {
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}
 		
 		try {
@@ -70,7 +71,7 @@ public class ShinColle {
 			OreDictionary.registerOre("dustManganese", new ItemStack(thing, 1, 1));
 		}
 		catch(Throwable e) {
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}
 	}
 }

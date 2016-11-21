@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
+import thelm.oredictinit.Woodchopper;
 
 public class UniverseCraft {
 	protected static void ore() {
@@ -20,7 +21,7 @@ public class UniverseCraft {
 			OreDictionary.registerOre("blockDarkMatterRefined", new ItemStack(thing, 1, 15));
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}
 		
 		try {
@@ -33,7 +34,7 @@ public class UniverseCraft {
 			OreDictionary.registerOre("blockZirconium", new ItemStack(thing, 1, 13));
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}
 		
 		try {
@@ -47,7 +48,7 @@ public class UniverseCraft {
 			OreDictionary.registerOre("ingotZirconium", new ItemStack(thing, 1, 59));
 		}
 		catch(Throwable e) {
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}
 	}
 }

@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
+import thelm.oredictinit.Woodchopper;
 
 public class GalacticraftMars {
 	protected static void ore() {	
@@ -12,7 +13,7 @@ public class GalacticraftMars {
 			OreDictionary.registerOre("blockDesh", new ItemStack(thing, 1, 8));
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}
 		
 		try {
@@ -20,7 +21,7 @@ public class GalacticraftMars {
 			OreDictionary.registerOre("oreTitanium", new ItemStack(thing, 1, 4));
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}
 		
 		try {
@@ -28,7 +29,7 @@ public class GalacticraftMars {
 			OreDictionary.registerOre("ingotDesh", new ItemStack(thing, 1, 2));
 		}
 		catch(Throwable e) {
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}
 	}
 }

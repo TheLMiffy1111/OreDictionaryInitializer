@@ -3,6 +3,7 @@ package thelm.oredictinit.registry;
 import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
+import thelm.oredictinit.Woodchopper;
 
 public class GalacticraftCore {
 	
@@ -12,7 +13,7 @@ public class GalacticraftCore {
 			OreDictionary.registerOre("oreMeteoricIron", new ItemStack(thing, 1, 0));
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}
 		
 		try {
@@ -20,7 +21,7 @@ public class GalacticraftCore {
 			OreDictionary.registerOre("blockMeteoricIron", new ItemStack(thing, 1, 12));
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			Woodchopper.warn(e.toString());
 		}
 	}
 }
