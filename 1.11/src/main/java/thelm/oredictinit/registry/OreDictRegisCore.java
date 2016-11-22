@@ -30,14 +30,23 @@ public class OreDictRegisCore {
 							Integer.parseInt(damageValues[i]);
 						}
 						catch(Throwable e) {
-							Woodchopper.warn("Entry " + entries[i] + "," + rawData[1] + "," + rawData[2] + "," + damageValues[i] + " has errored.");
-							Woodchopper.warn(e.toString());
+							Woodchopper.warn("Entry " + custom + " has errored:");
+							Woodchopper.error(e.toString());
 							break;
 						}
-						addCustomEntryB(entries[i].trim(), rawData[1].trim(), rawData[2].trim(), damageValues[i].trim());
+						addCustomEntryB(entries[i].trim(), rawData[1].trim(), rawData[2].trim(), damageValues[i].trim(), custom);
 					}
 				}
-			}			
+				else {
+					Woodchopper.warn("Entry " + custom + " has errored:");
+					Woodchopper.warn("Number of entries is inequal to number of damage values.");
+				}
+			}
+			else if(rawData.length == 1 && rawData[0].trim().isEmpty());
+			else {
+				Woodchopper.warn("Entry " + custom + " has errored:");
+				Woodchopper.warn("Entry length is incorrect.");
+			}
 		}
 		
 		Woodchopper.info("Loading Custom Item Entries");
@@ -52,18 +61,27 @@ public class OreDictRegisCore {
 							Integer.parseInt(damageValues[i]);
 						}
 						catch(Throwable e) {
-							Woodchopper.warn("Entry " + entries[i] + "," + rawData[1] + "," + rawData[2] + "," + damageValues[i] + " has errored.");
-							Woodchopper.warn(e.toString());
+							Woodchopper.warn("Entry " + custom + " has errored:");
+							Woodchopper.error(e.toString());
 							break;
 						}
-						addCustomEntryI(entries[i].trim(), rawData[1].trim(), rawData[2].trim(), damageValues[i].trim());
+						addCustomEntryI(entries[i].trim(), rawData[1].trim(), rawData[2].trim(), damageValues[i].trim(), custom);
 					}
 				}
-			}	
+				else {
+					Woodchopper.warn("Entry " + custom + " has errored:");
+					Woodchopper.warn("Number of entries is inequal to number of damage values.");
+				}
+			}
+			else if(rawData.length == 1 && rawData[0].trim().isEmpty());
+			else {
+				Woodchopper.warn("Entry " + custom + " has errored:");
+				Woodchopper.warn("Entry length is incorrect.");
+			}
 		}
 	}
 	
-	public static void addCustomEntryB(String entry, String mod, String block, String damage) {
+	public static void addCustomEntryB(String entry, String mod, String block, String damage, String fallback) {
 		
 		int dam = Integer.parseInt(damage);
 		
@@ -72,26 +90,26 @@ public class OreDictRegisCore {
 			OreDictionary.registerOre(entry, new ItemStack(thing, 1, dam));
 		}
 		catch(Throwable e) {
-			Woodchopper.warn("Entry " + entry + "-" + mod + "-" + block + "-" + damage + " has errored.");
-			Woodchopper.warn(e.toString());
+			Woodchopper.warn("Entry " + fallback + " has errored:");
+			Woodchopper.warn(e.getMessage());
 		}
 	}
 	
-	public static void addCustomEntryI(String entry, String mod, String item, String damage) {
+	public static void addCustomEntryI(String entry, String mod, String item, String damage, String fallback) {
 		
-		Integer dam = Integer.parseInt(damage);
+		int dam = Integer.parseInt(damage);
 		
 		try {
 			Item thing = getItem(mod,item);
 			OreDictionary.registerOre(entry, new ItemStack(thing, 1, dam));
 		}
 		catch(Throwable e) {
-			Woodchopper.warn("Entry " + entry + "-" + mod + "-" + item + "-" + damage + " has errored.");
-			Woodchopper.warn(e.toString());
+			Woodchopper.warn("Entry " + fallback + " has errored:");
+			Woodchopper.warn(e.getMessage());
 		}
 	}
 	
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings({"deprecation"})
 	public static Block getBlock(String mod, String block) throws BlockNotFoundException {
 		Block target = GameRegistry.findBlock(mod, block);
 		if(target == null)
@@ -99,7 +117,7 @@ public class OreDictRegisCore {
 		return target;
 	}
 	
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings({"deprecation"})
 	public static Item getItem(String mod, String item) throws ItemNotFoundException {
 		Item target = GameRegistry.findItem(mod, item);
 		if(target == null)

@@ -13,7 +13,7 @@ public class GalacticraftMars {
 			OreDictionary.registerOre("blockDesh", new ItemStack(thing, 1, 8));
 		}
 		catch(Exception e) {
-			Woodchopper.warn(e.toString());
+			Woodchopper.warn(e.getMessage());
 		}
 		
 		try {
@@ -21,7 +21,7 @@ public class GalacticraftMars {
 			OreDictionary.registerOre("oreTitanium", new ItemStack(thing, 1, 4));
 		}
 		catch(Exception e) {
-			Woodchopper.warn(e.toString());
+			Woodchopper.warn(e.getMessage());
 		}
 		
 		try {
@@ -29,7 +29,7 @@ public class GalacticraftMars {
 			OreDictionary.registerOre("ingotDesh", new ItemStack(thing, 1, 2));
 		}
 		catch(Throwable e) {
-			Woodchopper.warn(e.toString());
+			Woodchopper.warn(e.getMessage());
 		}
 	}
 }

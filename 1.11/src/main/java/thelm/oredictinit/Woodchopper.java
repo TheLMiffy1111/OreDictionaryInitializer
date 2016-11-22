@@ -8,6 +8,10 @@ public class Woodchopper {
 	
 	public static final Logger logger = LogManager.getLogger("OreDictInit");
 	
+	public static void error(Object message) {
+		logger.log(Level.ERROR, message);
+	}
+	
 	public static void warn(Object message) {
 		logger.log(Level.WARN, message);
 	}

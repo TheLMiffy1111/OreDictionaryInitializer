@@ -13,7 +13,7 @@ public class ShinColle {
 			OreDictionary.registerOre("blockManganese", new ItemStack(thing, 1, 0));
 		}
 		catch(Exception e) {
-			Woodchopper.warn(e.toString());
+			Woodchopper.warn(e.getMessage());
 		}
 		
 		try {
@@ -21,7 +21,7 @@ public class ShinColle {
 			OreDictionary.registerOre("blockAbyssium", new ItemStack(thing, 1, 0));
 		}
 		catch(Exception e) {
-			Woodchopper.warn(e.toString());
+			Woodchopper.warn(e.getMessage());
 		}
 		
 		try {
@@ -29,7 +29,7 @@ public class ShinColle {
 			OreDictionary.registerOre("oreManganese", new ItemStack(thing, 1, 0));
 		}
 		catch(Exception e) {
-			Woodchopper.warn(e.toString());
+			Woodchopper.warn(e.getMessage());
 		}
 		
 		try {
@@ -37,7 +37,7 @@ public class ShinColle {
 			OreDictionary.registerOre("blockGrudge", new ItemStack(thing, 1, 0));
 		}
 		catch(Exception e) {
-			Woodchopper.warn(e.toString());
+			Woodchopper.warn(e.getMessage());
 		}
 		
 		try {
@@ -45,7 +45,7 @@ public class ShinColle {
 			OreDictionary.registerOre("blockGrudgeHeavy", new ItemStack(thing, 1, 0));
 		}
 		catch(Exception e) {
-			Woodchopper.warn(e.toString());
+			Woodchopper.warn(e.getMessage());
 		}
 		
 		try {
@@ -53,7 +53,7 @@ public class ShinColle {
 			OreDictionary.registerOre("dustGrudge", new ItemStack(thing, 1, 0));
 		}
 		catch(Throwable e) {
-			Woodchopper.warn(e.toString());
+			Woodchopper.warn(e.getMessage());
 		}
 		
 		try {
@@ -62,7 +62,7 @@ public class ShinColle {
 			OreDictionary.registerOre("dustTinyManganese", new ItemStack(thing, 1, 1));			
 		}
 		catch(Throwable e) {
-			Woodchopper.warn(e.toString());
+			Woodchopper.warn(e.getMessage());
 		}
 		
 		try {
@@ -71,7 +71,7 @@ public class ShinColle {
 			OreDictionary.registerOre("dustManganese", new ItemStack(thing, 1, 1));
 		}
 		catch(Throwable e) {
-			Woodchopper.warn(e.toString());
+			Woodchopper.warn(e.getMessage());
 		}
 	}
 }

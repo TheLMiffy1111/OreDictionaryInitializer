@@ -13,7 +13,7 @@ public class GalacticraftCore {
 			OreDictionary.registerOre("oreMeteoricIron", new ItemStack(thing, 1, 0));
 		}
 		catch(Exception e) {
-			Woodchopper.warn(e.toString());
+			Woodchopper.warn(e.getMessage());
 		}
 		
 		try {
@@ -21,7 +21,7 @@ public class GalacticraftCore {
 			OreDictionary.registerOre("blockMeteoricIron", new ItemStack(thing, 1, 12));
 		}
 		catch(Exception e) {
-			Woodchopper.warn(e.toString());
+			Woodchopper.warn(e.getMessage());
 		}
 	}
 }
