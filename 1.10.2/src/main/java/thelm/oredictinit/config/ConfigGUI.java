@@ -16,7 +16,6 @@ public class ConfigGUI extends GuiConfig {
 		super(parent, getElements(), Reference.MOD_ID, Reference.MOD_ID, false, false, GuiConfig.getAbridgedConfigPath(ConfigHandler.INSTANCE.configFile.toString()));
 	}
 	
-	@SuppressWarnings({"rawtypes"})
 	private static List<IConfigElement> getElements() {
 		List<IConfigElement> list = new ArrayList<IConfigElement>();
 		for(String category : ConfigHandler.INSTANCE.usedCategories)
@@ -24,6 +23,7 @@ public class ConfigGUI extends GuiConfig {
 		return list;
 	}
 	
+	@SuppressWarnings({"unchecked"})
 	private static IConfigElement categoryElement(String category, String name, String tooltip_key) {
 		return new DummyConfigElement.DummyCategoryElement(name, tooltip_key, new ConfigElement(ConfigHandler.INSTANCE.configFile.getCategory(category)).getChildElements());
 	}

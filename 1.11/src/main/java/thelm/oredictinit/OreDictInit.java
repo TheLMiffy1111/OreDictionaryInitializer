@@ -14,9 +14,6 @@ import thelm.oredictinit.registry.OreDictRegisCore;
 @Mod(modid = Reference.MOD_ID, name = Reference.MOD_NAME, version = Reference.VERSION_NUMBER, dependencies = Reference.DEPENDENCIES,  guiFactory = Reference.GUI_FACTORY_CLASS)
 public class OreDictInit {
 	
-	public static String definedThingyBlocks;
-	public static String definedThingyItems;
-	
 	@Instance
 	public static OreDictInit instance;
 	

@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
 import thelm.oredictinit.Woodchopper;
 import thelm.oredictinit.lib.Compat;
-import thelm.oredictinit.OreDictInit;
+import thelm.oredictinit.lib.Data;
 
 public class OreDictRegisCore {
 	
@@ -41,68 +41,74 @@ public class OreDictRegisCore {
 	
 	public static void yayCustom() {
 		Woodchopper.info("Loading Custom Block Entries");
-		for(String custom : OreDictInit.definedThingyBlocks.split(";")) {
-			String[] rawData = custom.trim().split(",");
-			if(rawData.length == 4) {
-				String[] entries = rawData[0].split("\\+");
-				String[] damageValues = rawData[3].split("\\+");
-				if(entries.length == damageValues.length) {
-					for(int i = 0; i < entries.length; i++) {
-						try {
-							Integer.parseInt(damageValues[i]);
+		for(String whole : Data.definedThingyBlocks) {
+			for(String custom : whole.split(";")) {
+				Woodchopper.debug("Trying to load block entry " + custom);
+				String[] rawData = custom.trim().split(",");
+				if(rawData.length == 4) {
+					String[] entries = rawData[0].split("\\+");
+					String[] damageValues = rawData[3].split("\\+");
+					if(entries.length == damageValues.length) {
+						for(int i = 0; i < entries.length; i++) {
+							try {
+								Integer.parseInt(damageValues[i]);
+							}
+							catch(Throwable e) {
+								Woodchopper.warn("Entry " + custom + " has errored:");
+								Woodchopper.error(e.toString());
+								break;
+							}
+							addCustomEntryB(entries[i].trim(), rawData[1].trim(), rawData[2].trim(), damageValues[i], custom);
 						}
-						catch(Throwable e) {
-							Woodchopper.warn("Entry " + custom + " has errored:");
-							Woodchopper.error(e.toString());
-							break;
-						}
-						addCustomEntryB(entries[i].trim(), rawData[1].trim(), rawData[2].trim(), damageValues[i], custom);
+					}
+					else {
+						Woodchopper.warn("Entry " + custom + " has errored:");
+						Woodchopper.warn("Number of entries is inequal to number of damage values.");
 					}
 				}
+				else if(rawData.length == 1 && rawData[0].trim().isEmpty());
 				else {
 					Woodchopper.warn("Entry " + custom + " has errored:");
-					Woodchopper.warn("Number of entries is inequal to number of damage values.");
+					Woodchopper.warn("Entry length is incorrect.");
 				}
-			}
-			else if(rawData.length == 1 && rawData[0].trim().isEmpty());
-			else {
-				Woodchopper.warn("Entry " + custom + " has errored:");
-				Woodchopper.warn("Entry length is incorrect.");
 			}
 		}
 		
 		Woodchopper.info("Loading Custom Item Entries");
-		for(String custom : OreDictInit.definedThingyItems.split(";")) {
-			String[] rawData = custom.trim().split(",");
-			if(rawData.length == 4) {
-				String[] entries = rawData[0].trim().split("\\+");
-				String[] damageValues = rawData[3].trim().split("\\+");
-				if(entries.length == damageValues.length) {
-					for(int i = 0; i < entries.length; i++) {
-						try {
-							Integer.parseInt(damageValues[i]);
+		for(String whole : Data.definedThingyItems) {
+			for(String custom : whole.split(";")) {
+				Woodchopper.debug("Trying to load item entry " + custom);
+				String[] rawData = custom.trim().split(",");
+				if(rawData.length == 4) {
+					String[] entries = rawData[0].trim().split("\\+");
+					String[] damageValues = rawData[3].trim().split("\\+");
+					if(entries.length == damageValues.length) {
+						for(int i = 0; i < entries.length; i++) {
+							try {
+								Integer.parseInt(damageValues[i]);
+							}
+							catch(Throwable e) {
+								Woodchopper.warn("Entry " + custom + " has errored:");
+								Woodchopper.error(e.toString());						
+								break;
+							}
+							addCustomEntryI(entries[i].trim(), rawData[1].trim(), rawData[2].trim(), damageValues[i].trim(), custom);
 						}
-						catch(Throwable e) {
-							Woodchopper.warn("Entry " + custom + " has errored:");
-							Woodchopper.error(e.toString());						
-							break;
-						}
-						addCustomEntryI(entries[i].trim(), rawData[1].trim(), rawData[2].trim(), damageValues[i].trim(), custom);
+					}
+					else {
+						Woodchopper.warn("Entry " + custom + " has errored:");
+						Woodchopper.warn("Number of entries is inequal to number of damage values.");
 					}
 				}
+				else if(rawData.length == 1 && rawData[0].trim().isEmpty());
 				else {
 					Woodchopper.warn("Entry " + custom + " has errored:");
-					Woodchopper.warn("Number of entries is inequal to number of damage values.");
+					Woodchopper.warn("Entry length is incorrect.");
 				}
-			}
-			else if(rawData.length == 1 && rawData[0].trim().isEmpty());
-			else {
-				Woodchopper.warn("Entry " + custom + " has errored:");
-				Woodchopper.warn("Entry length is incorrect.");
 			}
 		}
 	}
-	
+
 	public static void addCustomEntryB(String entry, String mod, String block, String damage, String fallback) {
 		
 		int dam = Integer.parseInt(damage);
