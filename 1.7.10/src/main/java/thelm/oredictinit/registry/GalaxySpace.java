@@ -7,14 +7,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import thelm.oredictinit.Woodchopper;
 
 public class GalaxySpace {
-	protected static void ore() {
-		try {
-			Block thing = OreDictRegisCore.getBlock("GalaxySpace","ioblocks");
-			OreDictionary.registerOre("oreSulfur", new ItemStack(thing, 1, 6));
-		}
-		catch(Exception e) {
-			Woodchopper.warn(e.getMessage());
-		}		
+	protected static void ore() {	
 		
 		try {
 			Block thing = OreDictRegisCore.getBlock("GalaxySpace","ganymedeblocks");
@@ -36,7 +29,7 @@ public class GalaxySpace {
 			Block thing = OreDictRegisCore.getBlock("GalaxySpace","metalsblock");
 			OreDictionary.registerOre("blockLead", new ItemStack(thing, 1, 0));
 			OreDictionary.registerOre("blockAdamantite", new ItemStack(thing, 1, 1));
-			OreDictionary.registerOre("blockCobaltum", new ItemStack(thing, 1, 2));
+			OreDictionary.registerOre("blockCobalt", new ItemStack(thing, 1, 2));
 			OreDictionary.registerOre("blockMagnesium", new ItemStack(thing, 1, 3));
 			OreDictionary.registerOre("blockMithril", new ItemStack(thing, 1, 4));
 			OreDictionary.registerOre("blockNickel", new ItemStack(thing, 1, 5));
@@ -44,46 +37,6 @@ public class GalaxySpace {
 			OreDictionary.registerOre("blockPlatinum", new ItemStack(thing, 1, 7));
 			OreDictionary.registerOre("blockTungsten", new ItemStack(thing, 1, 8));
 			OreDictionary.registerOre("blockCopper", new ItemStack(thing, 1, 9));
-		}
-		catch(Exception e) {
-			Woodchopper.warn(e.getMessage());
-		}
-		
-		try {
-			Block thing = OreDictRegisCore.getBlock("GalaxySpace","enceladusglowstone");
-			OreDictionary.registerOre("glowstone", new ItemStack(thing, 1, 0));
-		}
-		catch(Exception e) {
-			Woodchopper.warn(e.getMessage());
-		}
-		
-		try {
-			Block thing = OreDictRegisCore.getBlock("GalaxySpace","plutoglowstone");
-			OreDictionary.registerOre("glowstone", new ItemStack(thing, 1, 0));
-		}
-		catch(Exception e) {
-			Woodchopper.warn(e.getMessage());
-		}
-		
-		try {
-			Block thing = OreDictRegisCore.getBlock("GalaxySpace","ioglowstone");
-			OreDictionary.registerOre("glowstone", new ItemStack(thing, 1, 0));
-		}
-		catch(Exception e) {
-			Woodchopper.warn(e.getMessage());
-		}
-		
-		try {
-			Block thing = OreDictRegisCore.getBlock("GalaxySpace","proteusglowstone");
-			OreDictionary.registerOre("glowstone", new ItemStack(thing, 1, 0));
-		}
-		catch(Exception e) {
-			Woodchopper.warn(e.getMessage());
-		}
-		
-		try {
-			Block thing = OreDictRegisCore.getBlock("GalaxySpace","ceresglowstone");
-			OreDictionary.registerOre("glowstone", new ItemStack(thing, 1, 0));
 		}
 		catch(Exception e) {
 			Woodchopper.warn(e.getMessage());

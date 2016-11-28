@@ -17,8 +17,8 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "1.7.10-1.0.5"
-group= "thelm.oredictinit"
+version = "1.7.10-1.0.5-VerLater"
+group= "thelm.oredictinitverlater"
 archivesBaseName = "OreDictInit"
 
 minecraft {
